@@ -18,23 +18,30 @@ public class RequestController {
 		return new ResponseEntity<PrNumbers>(num, HttpStatus.OK);
 	}
 
-	// GET request handler for numbers
+	/*// GET request handler for numbers
 	@RequestMapping(value = "/addGetNumbs", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<String> add(@RequestParam("firstNumber") int first,
+	public ResponseEntity<ChatFuelDTO> add(@RequestParam("firstNumber") int first,
 			@RequestParam("secondNumber") int second) {
 		PrNumbers number = new PrNumbers(first, second);
-		System.out.println("I have recieved a GET request!");
-		return new ResponseEntity<String>(number.toChatFuel(), HttpStatus.OK);
-	}
-
+		ChatFuelDTO dto=new ChatFuelDTO();
+		dto.setMessages();
+		return ResponseEntity<ChatFuelDTO>(dto,HttpStatus.OK);
+	}*/
+	
 	// Handlers for GET and POST requests to get user info
 	// GET request handler
 	@RequestMapping(value = "/giveGetUserInfo", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<String> getInfo(@RequestParam("userId") String userID,
+	public ResponseEntity<ChatFuelDTO> getInfo(@RequestParam("userId") String userID,
 			@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName,
 			@RequestParam("mail") String mail) {
-		UserInfo uInfo = new UserInfo(userID, lastName, firstName, mail);
-		return new ResponseEntity<String>(uInfo.toChatFuel(), HttpStatus.OK);
+		//UserInfo uInfo = new UserInfo(userID, lastName, firstName, mail);
+		ChatFuelDTO dto=new ChatFuelDTO();
+		dto.setMessages(userID);
+		dto.setMessages(lastName);
+		dto.setMessages(firstName);
+		dto.setMessages(mail);
+		//dto.setMessages(uInfo);
+		return new ResponseEntity<ChatFuelDTO>(dto, HttpStatus.OK);
 	}
 
 	// POST request handler

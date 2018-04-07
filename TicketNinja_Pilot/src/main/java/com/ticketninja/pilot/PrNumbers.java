@@ -30,21 +30,5 @@ public class PrNumbers {
 	}
 
 	// Creating the result string that the Chatfuel can handl
-	public String toChatFuel() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("{\r\n");
-		builder.append(" \"messages\": [\r\n");
-		builder.append("   {\"text\": \"Your information:\"},\r\n");
-		builder.append("   {\"text\": \"The numbers: ");
-		builder.append(firstNumber);
-		builder.append(" and ");
-		builder.append(secondNumber);
-		builder.append("\"},\r\n");
-		builder.append("   {\"text\": \"The addition's result: ");
-		builder.append(addition());
-		builder.append("\"}\r\n");
-		builder.append(" ]\r\n");
-		builder.append("}");
-		return builder.toString();
-	}
+	
 }
